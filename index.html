@@ -15,7 +15,7 @@
       <div class="ordenList">
          <div class="header alinear">
             <span> Listado de Tareas </span>
-            <input type="button" value="Añadir tarea" id="boton" class="boton"></input>
+            <input type="button" value="Añadir tarea" id="add" class="boton"></input>
          </div>
          <div class="cuerpo alinear">
             <div class="t_header">
@@ -25,8 +25,8 @@
             </div>
             <u class="u_lista">
                <li class="li_lista">
-                  <span>Desayunar</span>
-                  <span>1.pm</span>
+                  <span id="spn_one">Desayunar</span>
+                  <span id="spn_two">1.pm</span>
                   <input type="button" class="boton boton_lista">
                </li>
             </u>
@@ -44,6 +44,7 @@
          <input type="text" id="horario" class="add_workin">
 
       </div>
+      <input type="button" value="Enviar" id="enviar" class="boton">
    </div>
 
    <script src="js/index.js"></script>
