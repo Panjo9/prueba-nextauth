@@ -2,11 +2,9 @@
 
 import { userSchema } from '@lib/definitions';
 import bcrypt from 'bcrypt';
-import { PrismaClient } from '@prisma/client';
+import { prisma } from '@prisma/cliente';
 
-const prisma = new PrismaClient();
-
-async function registro(currentUser, req, res) {
+async function registro(currentUser, req) {
   const rawFormData = Object.fromEntries(req);
 
   // 1. validar datos
@@ -26,7 +24,7 @@ async function registro(currentUser, req, res) {
 
   const hashedPassword = await bcrypt.hash(password, 10);
 
-  const newuser = await prisma.user.create({
+  await prisma.user.create({
     data: {
       name: name,
       email: email,
@@ -39,6 +37,13 @@ async function registro(currentUser, req, res) {
   return { user, succesful: 'Usuario creado correctamente' };
 
   // 3. crear sesión
+}
+
+async function main() {
+  const user = await prisma.$connect();
+
+  await registro(user, req);
+
 }
 
 export { registro };

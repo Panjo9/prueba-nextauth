@@ -5,7 +5,8 @@
          "@app/*": ["app/*"],
          "@components/*": ["components/*"],
          "@ui/*": ["app/_ui/*"],
-         "@lib/*": ["app/_lib/*"]
+         "@lib/*": ["app/_lib/*"],
+         "@prisma/*": ["prisma/*"]
       }
    }
 }
