@@ -1,13 +1,12 @@
+import { cookies } from "next/headers";
+
 export default function DashboardPage() {
+
+  const cookie = cookies().get('session');
+  console.log(cookie);
   return (
     <div>
-      <p className="">Hola José bienvenido</p>
-      <button
-        type="button"
-        className="border border-solid border-black rounded p-2 hover:bg-slate-300"
-        onClick={() => setUser(null)}>
-        Cerrar sesión
-      </button>
+      <h1>Bienvenido al panel de control</h1>
     </div>
   );
 }

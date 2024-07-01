@@ -3,6 +3,7 @@
 import { userSchema } from '@lib/definitions';
 import bcrypt from 'bcrypt';
 import { prisma } from '@prisma/cliente';
+import { createSession } from '@lib/session';
 
 async function registro(currentUser, req) {
   const rawFormData = Object.fromEntries(req);
@@ -34,9 +35,12 @@ async function registro(currentUser, req) {
 
   const user = await prisma.user.findMany();
 
-  return { user, succesful: 'Usuario creado correctamente' };
 
   // 3. crear sesión
+  await createSession(user.id);
+
+
+  return { user, succesful: 'Usuario creado correctamente' };
 }
 
 async function main() {
