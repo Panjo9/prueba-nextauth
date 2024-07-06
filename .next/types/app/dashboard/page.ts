@@ -1,4 +1,4 @@
-// File: C:\laragon\www\lista_tareas\app\dashboard\page.js
+// File: C:\laragon\www\prueba-nextauth\Delba\app\dashboard\page.jsx
 import * as entry from '../../../../app/dashboard/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

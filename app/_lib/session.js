@@ -42,9 +42,9 @@ export async function decrypt(session) {
 }
 
 // 1. crear sesión
-export async function createSession(userId) {
+export async function createSession(userId, role) {
   const expires = new Date(Date.now() + cookie.duration);
-  const session = await encrypt({ userId, expires });
+  const session = await encrypt({ userId, expires, role });
 
   cookies().set(cookie.name, session, { ...cookie.options, expires });
   redirect('/dashboard');
@@ -56,7 +56,7 @@ export async function verifySession() {
   const session = await decrypt(cookie);
 
   if (!session?.userId) redirect('/login');
-  return { userId: session.userId };
+  return { userId: session.userId, role: session.role };
 }
 
 // 3. eliminar sesión
